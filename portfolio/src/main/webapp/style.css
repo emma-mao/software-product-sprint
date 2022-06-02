@@ -1,9 +1,36 @@
-#content {
-  margin-left: auto;
-  margin-right: auto;
-  width: 650px;
-}
-
-#quote-container {
-  margin-top: 20px;
-}
+.circle-pic{
+    width: 150px;
+    height: 200px;
+    border-radius: 50%
+  }
+  
+  .left{
+    padding-top:50px;
+    padding-bottom: 50px;
+    float: left;
+    width:300px;
+    height: 800px;
+    background-color: rgb(122, 3, 3);
+    vertical-align: middle;
+    text-align: center;
+    font-size: 16px;
+    font-family:'Courier New', Courier, monospace;
+  }
+  
+  ul li{
+    color: azure;
+  }
+  
+  .right{
+    padding: 50px;
+    margin-left: 300px;
+    height: 800px;
+    background-color:rgb(255, 232, 222);
+    font-size: 16px;
+    font-family:'Courier New', Courier, monospace;
+  }
+  
+  .content{
+    margin: 100px;
+    height: 100%;
+  }
