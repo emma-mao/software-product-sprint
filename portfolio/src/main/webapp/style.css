@@ -3,13 +3,17 @@
     height: 200px;
     border-radius: 50%
   }
-  
+
+  .pic{
+      height:300px;
+  }
   .left{
     padding-top:50px;
     padding-bottom: 50px;
     float: left;
     width:300px;
-    height: 800px;
+    height:100%;
+    position: absolute;
     background-color: rgb(122, 3, 3);
     vertical-align: middle;
     text-align: center;
@@ -24,7 +28,8 @@
   .right{
     padding: 50px;
     margin-left: 300px;
-    height: 800px;
+    height:100%;
+    position: absolute;
     background-color:rgb(255, 232, 222);
     font-size: 16px;
     font-family:'Courier New', Courier, monospace;
