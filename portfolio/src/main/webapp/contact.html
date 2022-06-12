@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Gallery</title>
+    <title>Contact Me</title>
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
@@ -16,16 +16,18 @@
           </div>
       </div>
     <div class="right">
-        <img class="pic" src="/images/michigan.png" />
-        <p>Night at Ann Arbor, Michigan. Place where I'm living in.</p>
-        <img class="pic" src="/images/suzhou.jpg" />
-        <p>Suzhou, China. Place where I was born and raised up.</p>
-        <img class="pic" src="/images/pr1.png" />
-        <p>San Juan, Puerto Rico. My favorite travel in 2022.</p>
-        <img class="pic" src="/images/pr2.png" />
-        <p>San Juan, Puerto Rico.</p>
-        <img class="pic" src="/images/her.png" />
-        <p>Her, Spike Jonze, 2013. My all-time fav movie.</p>
+        <form action="/form-handler" method="POST">
+            <p>Name:</p>
+            <textarea name="name-input"></textarea>
+            <br/>
+            <p>Email:</p>
+            <textarea name="email-input"></textarea>
+            <br/>
+            <p>Leave a Message:</p>
+            <textarea name="message-input"></textarea>
+            <br/>
+            <input type="submit" />
+          </form>
     </div>
   </body>
 </html>

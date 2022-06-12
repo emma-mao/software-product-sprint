@@ -15,17 +15,37 @@
 /**
  * Shows a random quotes to the page.
  */
-function addRandomQuote() {
-    const quotes =
-        ['You talking to me? - Taxi Driver, 1976', 
-        'To infinity and beyond! -Toy Story, 1995', 
-        'Life is a banquet, and most poor suckers are starving to death! -Auntie Mame, 1958', 
-        'Jessica, only child, Illinois, Chicago. -Parasite, 2019'];
+async function addRandomQuote() {
+    //  const quotes =
+    //    ['After the invention of film, human life has been extended at least three times. - Edward Yang', 
+    //      'You talking to me? - Taxi Driver, 1976', 
+    //     'To infinity and beyond! - Toy Story, 1995', 
+    //     'Life is a banquet, and most poor suckers are starving to death! - Auntie Mame, 1958', 
+    //     'Jessica, only child, Illinois, Chicago. - Parasite, 2019'];
+     const responseFromServer = await fetch("/server-quotes");
+     const jsonQuotes = await responseFromServer.json();
+     // for test purpose
+     console.log(jsonQuotes.taxi);
+     console.log(jsonQuotes.toy);
+     console.log(jsonQuotes.parasite);
   
-    // Pick a random quote.
-    const quote = quotes[Math.floor(Math.random() * quotes.length)];
-  
+     const quotes = [];
+     quotes.push(jsonQuotes.taxi);
+     quotes.push(jsonQuotes.toy);
+     quotes.push(jsonQuotes.parasite);
+     // Pick a random quote.
+      const quote = quotes[Math.floor(Math.random() * quotes.length)];
     // Add it to the page.
-    const quoteContainer = document.getElementById('quote-container');
-    quoteContainer.innerText = quote;
+      const quoteContainer = document.getElementById('quote-container');
+      quoteContainer.innerText = quote;  
+   }
+  
+   /** Fetches the current date from the server and adds it to the page. */
+  async function showServerTime() {
+    const responseFromServer = await fetch('/date');
+    const textFromResponse = await responseFromServer.text();
+  
+    const dateContainer = document.getElementById('date-container');
+    dateContainer.innerText = textFromResponse;
   }
+  

@@ -6,17 +6,22 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
   </head>
-  <body>
+  <body onload = "showServerTime()">
     <div class="left">
       <img class="circle-pic" src="/images/Jingyi.png" /><br>
-      <ul>
-        <!--Hyperlinks To be Modified-->
-        <li><a href="index.html">About Me</a></li>
-        <li><a href="projects.html">My projects</a></li>
-        <li><a href="gallery.html">Gallery</a></li>
-        <li><a href="index.html">Contact Me</a></li>
-      </ul>
-    </div>
+      <div class="sidebar">
+        <a href="index.html" style="color: white">About Me</a><br>
+        <a href="projects.html" style="color: white">My projects</a><br>
+        <a href="gallery.html" style="color: white">Gallery</a><br>
+        <a href="contact.html" style="color: white">Contact Me</a><br>
+      </div>
+        <div class="contact">
+          <a href="https://github.com/emma-mao/software-product-sprint"><img class="icon" src="/images/github_icon.png" /></a>
+          <a href="https://www.linkedin.com/in/jingyi-mao-708214226/"><img class="icon" src="/images/linkedin_icon.png" /></a>
+          <a href="mailto: jymao@umich.com"><img class="icon" src="/images/email_icon.png" /></a><br>
+        </div>
+        <p id="date-container" style="color: white"></p>
+      </div>
     <div class="right">
         <div class="content">
         <h1>Jingyi Mao</h1>
@@ -26,7 +31,7 @@
         I transferred to Umich and started majoring in Computer Science in 2021. 
         I'm most familiar with C and C++. In my free time, I love reading, watching movies, 
         cooking and trying different food!</p>
-        <!--<p>Click <a href="/Explore">here</a> to see content created by server code.</p>-->
+        <p>Click <a href="/hello">here</a> to see content created by server code.</p>
         <p>Click on the side bar to explore more!</p>
         <p>What I love about Movies:</p>
         <button onclick="addRandomQuote()">Explore</button>
