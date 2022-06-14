@@ -13,7 +13,6 @@
 // limitations under the License.
 
 package com.google.sps.servlets;
-// import com.google.gson.Gson;
 import java.io.IOException;
 import java.util.ArrayList;
 import javax.servlet.annotation.WebServlet;
@@ -27,7 +26,7 @@ public final class ServerQuotesServlet extends HttpServlet {
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     // define an ArrayList containing the quotes(String)
-    ArrayList<String> quotes = new ArrayList<String>();
+    ArrayList<String> quotes = new ArrayList<>();
     quotes.add("You talking to me? - Taxi Driver, 1976");
     quotes.add("To infinity and beyond! - Toy Story, 1995");
     quotes.add("Jessica, only child, Illinois, Chicago. - Parasite, 2019");
@@ -40,14 +39,9 @@ public final class ServerQuotesServlet extends HttpServlet {
     response.getWriter().println(json);
   }
 
-   /**
-   * Converts a ServerStats instance into a JSON string using manual String concatentation.
-   */
+  // Converts a ServerStats instance into a JSON string using manual String concatentation.   
    private String convertToJson(ArrayList<String> quotes) {
      String json = "{";
-     //  for (int i = 0; i < quotes.size(); ++i) {
-     //    json += "\"" + quotes.get(i) + "\"";
-     //  }
      json += "\"taxi\": ";
      json += "\"" + quotes.get(0) + "\"";
      json += ", ";
@@ -59,14 +53,4 @@ public final class ServerQuotesServlet extends HttpServlet {
      json += "}";
      return json;
    }
-  
-  /**
-   * Converts a ServerStats instance into a JSON string using the Gson library. Note: We first added
-   * the Gson library dependency to pom.xml.
-   */
-  // private String convertToJsonUsingGson(ArrayList<String> quotes) {
-  //   Gson gson = new Gson();
-  //   String json = gson.toJson(quotes);
-  //   return json;
-  // }
 }
