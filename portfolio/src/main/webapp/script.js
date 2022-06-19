@@ -13,16 +13,53 @@
 // limitations under the License.
 
 /**
- * Adds a random greeting to the page.
+ * Shows a random quotes to the page.
  */
-function addRandomGreeting() {
-  const greetings =
-      ['Hello world!', '¡Hola Mundo!', '你好，世界！', 'Bonjour le monde!'];
-
-  // Pick a random greeting.
-  const greeting = greetings[Math.floor(Math.random() * greetings.length)];
-
-  // Add it to the page.
-  const greetingContainer = document.getElementById('greeting-container');
-  greetingContainer.innerText = greeting;
-}
+async function addRandomQuote() {
+    const responseFromServer = await fetch("/server-quotes");
+    const jsonQuotes = await responseFromServer.json();
+    // for test purpose
+    console.log(jsonQuotes.taxi);
+    console.log(jsonQuotes.toy);
+    console.log(jsonQuotes.parasite);
+ 
+    const quotes = [];
+    quotes.push(jsonQuotes.taxi);
+    quotes.push(jsonQuotes.toy);
+    quotes.push(jsonQuotes.parasite);
+    // Pick a random quote.
+     const quote = quotes[Math.floor(Math.random() * quotes.length)];
+   // Add it to the page.
+     const quoteContainer = document.getElementById('quote-container');
+     quoteContainer.innerText = quote;  
+  }
+ 
+  // Fetches the current date from the server and adds it to the page.
+ async function showServerTime() {
+   const responseFromServer = await fetch('/date');
+   const textFromResponse = await responseFromServer.text();
+ 
+   const dateContainer = document.getElementById('date-container');
+   dateContainer.innerText = textFromResponse;
+ }
+ 
+ // for translation
+function requestTranslation() {
+    const text = document.getElementById('text').value;
+    const languageCode = document.getElementById('language').value;
+  
+    const resultContainer = document.getElementById('result');
+    resultContainer.innerText = 'Loading...';
+  
+    const params = new URLSearchParams();
+    params.append('text', text);
+    params.append('languageCode', languageCode);
+  
+    fetch('/translate', {
+      method: 'POST',
+      body: params
+    }).then(response => response.text())
+    .then((translatedMessage) => {
+      resultContainer.innerText = translatedMessage;
+    });
+  }
